@@ -22,24 +22,13 @@
         <%@ include file="/layout/header.jsp" %>
         <div id="container"><h2>로그인</h2>
 
-        <form name="loginfrm" id="loginfrm" method="post">
+        <form name="loginfrm" id="loginfrm" method="post" action="session.jsp">
             <div><label for="userid">아이디 </label>
                 <input type="text" name="userid" id="userid"></div>
             <div><label for="passwd">비밀번호</label>
                 <input type="password" name="passwd" id="passwd"></div>
             <div>
-                <button type="button">로그인</button></div>
-
-
-    <!-- <table>
-            <tr><td>아이디 </td>
-                <td><input type="text" name="uid" required></td></tr>
-            <tr><td>비밀번호 </td>
-                <td><input type="password" name="pwd" required></td></tr>
-            <tr><td></td>
-                <td><button type="submit">로그인</button></td></tr>
-            </table> -->
-
+                <button type="button" id="loginbtn">로그인</button></div>
 
         </form>
         </div>
@@ -47,5 +36,22 @@
 
         <%@ include file="/layout/footer.jsp" %>
         </div>
+        
+        <script>
+        	var loginbtn = document.getElementById('loginbtn');
+        	loginbtn.addEventListener('click', loginok);
+        	
+        	function loginok() {
+        		var frm = document.getElementById('loginfrm');
+        		if (frm.userid.value == '')
+        			alert('아이디를 입력하시오.');
+        		else if (frm.passwd.value == '')
+        			alert('비밀번호를 입력하시오.');
+        		else {
+        			frm.action = 'loginok.jsp';
+        			frm.submit();
+        		}
+        	}
+        </script>
     </body>
 </html>

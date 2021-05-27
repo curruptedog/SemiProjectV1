@@ -24,6 +24,7 @@
 	<sql:param value="${param.name}" />
 	<sql:param value="${param.email}" />
 </sql:update>
+
 <!DOCTYPE html>
 <html>
 <head>
